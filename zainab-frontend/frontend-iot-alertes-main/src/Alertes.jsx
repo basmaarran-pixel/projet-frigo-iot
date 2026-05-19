@@ -6,7 +6,7 @@ export default function Alertes() {
     const [alertes, setAlertes] = useState([]);
 
     const charger = () => {
-        axios.get('http://localhost:3001/api/alerts')
+        axios.get('http://localhost:3002/api/alerts')
             .then(res => setAlertes(res.data))
             .catch(err => console.error('Erreur alertes :', err));
     };
@@ -14,7 +14,7 @@ export default function Alertes() {
     useEffect(() => { charger(); }, []);
 
     const resoudre = async (id) => {
-        await axios.patch(`http://localhost:3001/api/alerts/${id}/resolve`);
+        await axios.patch(`http://localhost:3002/api/alerts/${id}/resolve`);
         charger();
     };
 

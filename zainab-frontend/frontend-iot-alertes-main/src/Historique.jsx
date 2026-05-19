@@ -11,7 +11,7 @@ export default function Historique({ frigoId = 1 }) {
     const [donnees, setDonnees] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/fridges/${frigoId}/history?from=2026-05-01&to=2026-05-31`)
+        axios.get(`http://localhost:3002/api/fridges/${frigoId}/history?from=2026-05-01&to=2026-05-31`)
             .then(res => {
                 const formatted = res.data.map(d => ({
                     valeur_temp: d.valeur_temp,
